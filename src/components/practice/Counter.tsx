@@ -1,66 +1,45 @@
 import { Component, type ReactNode } from "react";
 
-type StateType = {
-  count:number;
-  userName: string;
-  age:number,
+type Props = {}
+
+type State = {
+    count:number,
 }
 
-class Counter extends Component<{},StateType> {
-
-  constructor(props:{}){
-
-    super(props);
-
-      this.state = {
-      count:0,
-      userName:"Mohamed",
-      age: 35
-    };
-  }
 
 
-  handelIncrease():void {
-    
-    this.setState({count:this.state.count + 1})
 
-  }
+class Counter extends Component <Props,State> {
 
-  handelDecrease():void {
-   
-    this.setState({count:this.state.count - 1})
+    constructor(props:Props){
+        super(props)
+        this.state = {
+            count: 0,
+        }
+        console.log('constructor');
+    }
 
-  }
+    componentDidMount(): void {
+        console.log('did mount call');
+    }
 
-  handelReset():void {
-    this.setState({count:0})
+    shouldComponentUpdate(nextState:State): boolean {
+        return nextState.count !== this.state.count
+    }
 
-  }
+    componentDidUpdate(): void {
+        console.log('component is updated');
+        
+    }
 
-  render(): ReactNode {
-
-    let {count,userName} = this.state;
-
-    return <div className="theme-header">
-          <h1>{userName} count: {count}</h1>
-
-          <div className="row">
-            <button onClick={()=> this.handelIncrease()}>
-            Increase
-          </button>
-
-          <button onClick={()=> this.handelDecrease()}>
-            Decrease
-          </button>
-
-          <button onClick={()=> this.handelReset()}>
-            Rest
-          </button>
-          </div>
-    </div>
-    
-  }
-
+    render(): ReactNode {
+        console.log('render');
+        
+        return <div className="text-center">
+            <h1>{this.state.count}</h1>
+            <button onClick={()=>this.setState({count:this.state.count + 1})}>Increased</button>
+        </div>
+    }
 }
 
 export default Counter;
