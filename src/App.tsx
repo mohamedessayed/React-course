@@ -3,6 +3,10 @@ import './assets/css/app.css';
 
 import StateEx from "./components/practice/hooks/StateEx";
 import EffectEx from "./components/practice/hooks/EffectEx";
+import GetPosts from "./components/practice/api/GetPosts";
+import RefEx from "./components/practice/hooks/RefEx";
+import CreateStudent from "./components/practice/CreateStudent";
+import MemoEx from "./components/practice/hooks/MemoEx";
 
 
 class App extends Component {
@@ -16,8 +20,15 @@ class App extends Component {
 
     return <div>
 
+<MemoEx />
+
+{/* <CreateStudent /> */}
+
+
+{/* <RefEx />
+<GetPosts />
       <StateEx />
-      <EffectEx />
+      <EffectEx /> */}
 
       {/* <Welcome />
 
