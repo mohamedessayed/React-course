@@ -1,11 +1,8 @@
 import { Component, type ReactNode } from "react";
 import './assets/css/app.css';
-import Header from "./components/Header";
-import ServiceSection from "./components/ServiceSection";
-import Timer from "./components/practice/Timer";
-import Welcome from "./components/practice/Welcome";
-import StudentCard, { type StudentInterface } from "./components/practice/StudentCard";
-import CourseList from "./pages/CourseList";
+
+import StateEx from "./components/practice/hooks/StateEx";
+import EffectEx from "./components/practice/hooks/EffectEx";
 
 
 class App extends Component {
@@ -16,12 +13,13 @@ class App extends Component {
 
   render(): ReactNode {
 
-    let student1:StudentInterface = {name:"ahmed", age:20}
-    let student2:StudentInterface = {name:"Walid", age:29, mail:"1321"}
 
     return <div>
 
-      <Welcome />
+      <StateEx />
+      <EffectEx />
+
+      {/* <Welcome />
 
 
       <StudentCard  student={ student1 } />
@@ -33,7 +31,9 @@ class App extends Component {
 
           <Header />
 
-          <ServiceSection />
+          <ServiceSection /> */}
+
+
     </div>
     
   }
