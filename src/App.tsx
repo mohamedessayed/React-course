@@ -12,6 +12,7 @@ import EffectEx from "./components/practice/hooks/EffectEx";
 import RefEx from "./components/practice/hooks/RefEx";
 import CallbackEX from "./components/practice/hooks/CallbackEX";
 import Navbar from "./components/parts/Navbar";
+import UserList from "./components/practice/api/UserList";
 
 
 class App extends Component {
@@ -33,6 +34,8 @@ class App extends Component {
     <Route index element={<Welcome />} />
     <Route path="/service" element={<ServiceSection />} />
     <Route path="/courses" element={<CourseList />} />
+
+    <Route path="/user/list" element={<UserList />} />
 
     <Route path="/hooks">
         <Route path="state" element={<StateEx />} />
