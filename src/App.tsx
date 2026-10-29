@@ -1,12 +1,17 @@
 import { Component, type ReactNode } from "react";
 import './assets/css/app.css';
 
+
+import { Route, Routes } from "react-router";
+import Welcome from "./components/practice/Welcome";
+import ServiceSection from "./components/ServiceSection";
+import CourseList from "./pages/CourseList";
 import StateEx from "./components/practice/hooks/StateEx";
-import EffectEx from "./components/practice/hooks/EffectEx";
-import GetPosts from "./components/practice/api/GetPosts";
-import RefEx from "./components/practice/hooks/RefEx";
-import CreateStudent from "./components/practice/CreateStudent";
 import MemoEx from "./components/practice/hooks/MemoEx";
+import EffectEx from "./components/practice/hooks/EffectEx";
+import RefEx from "./components/practice/hooks/RefEx";
+import CallbackEX from "./components/practice/hooks/CallbackEX";
+import Navbar from "./components/parts/Navbar";
 
 
 class App extends Component {
@@ -18,9 +23,31 @@ class App extends Component {
   render(): ReactNode {
 
 
-    return <div>
+    return <>
 
-<MemoEx />
+      <Navbar />
+
+    <Routes>
+
+
+    <Route index element={<Welcome />} />
+    <Route path="/service" element={<ServiceSection />} />
+    <Route path="/courses" element={<CourseList />} />
+
+    <Route path="/hooks">
+        <Route path="state" element={<StateEx />} />
+        <Route path="memo" element={<MemoEx />} />
+        <Route path="effect" element={<EffectEx />} />
+        <Route path="ref" element={<RefEx />} />
+        <Route path="callback" element={<CallbackEX />} />
+    </Route>
+
+    </Routes>
+    
+    
+
+{/* <CallbackEX /> */}
+{/* <MemoEx /> */}
 
 {/* <CreateStudent /> */}
 
@@ -42,10 +69,11 @@ class App extends Component {
 
           <Header />
 
-          <ServiceSection /> */}
+           */}
 
 
-    </div>
+        </>
+
     
   }
 

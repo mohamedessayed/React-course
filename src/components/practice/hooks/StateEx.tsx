@@ -11,9 +11,9 @@ function StateEx() {
 
     const [count,setCount] = useState<number>(0);
     
-    const [userName, setUserName] = useState<string>('Ahmed')
+    // const [userName, setUserName] = useState<string>('Ahmed')
 
-    const [isLoggin, setIsLoggin] = useState<boolean>(false);
+    const [isLoggin] = useState<boolean>(false);
 
     const [students, setStudents] = useState<string[]>(['Ali'])
 

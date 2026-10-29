@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type ChangeEventHandler } from "react"
+import { useState } from "react"
 import CourseCard from "../components/CourseCard";
 
 
@@ -12,7 +12,7 @@ function CourseList() {
 
     const[result,setResult] = useState<courseData[]>()
 
-    const[list,setList] = useState<courseData[]>([
+    const[list] = useState<courseData[]>([
         {
         id:1,
         title:"course one",
@@ -36,7 +36,7 @@ function CourseList() {
 ]);
 
 
-const keyUpHandel = (e)=>{
+const keyUpHandel = (e:any)=>{
     const searchValue = e.target.value;
     const searchResult = list.filter((course)=>course.title.includes(searchValue))
     setResult(searchResult)
@@ -47,7 +47,7 @@ const keyUpHandel = (e)=>{
 return <div className="container py-5">
 
     <div className="mb-3">
-        <input onChange={(e)=>keyUpHandel(e)} type="search" className="form-control" placeholder="search courses....." />
+        <input onChange={(e: any)=>keyUpHandel(e)} type="search" className="form-control" placeholder="search courses....." />
     </div>
 
 {result ? result.map((course)=> <CourseCard key={course.id} title={course.title} description={course.description}/>) : list.map((course)=> <CourseCard key={course.id} title={course.title} description={course.description}/>)}
