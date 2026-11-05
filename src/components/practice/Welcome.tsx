@@ -1,10 +1,18 @@
-import { useState } from "react";
+import Dashboard from "../system/Dashboard"
+
+type UserType = {
+    name:string,
+    email:string
+}
+
+export type Props = {
+    user: UserType
+}
 
 function Welcome(): React.JSX.Element{
 
-    const [userName] = useState("Ali")
 
-    return <h1>Welcome {userName} to React!</h1>
+    return <Dashboard  />
 }
 
 

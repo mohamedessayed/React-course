@@ -1,5 +1,6 @@
 import { useState } from "react"
 import CourseCard from "../components/CourseCard";
+import { useUser } from "../hooks/useUser";
 
 
 type courseData = {

@@ -1,37 +1,32 @@
-import { Component, type ReactNode } from "react";
-import './assets/css/app.css';
-
-
 import { Route, Routes } from "react-router";
+import Navbar from "./components/parts/Navbar";
 import Welcome from "./components/practice/Welcome";
 import ServiceSection from "./components/ServiceSection";
 import CourseList from "./pages/CourseList";
+import UserList from "./components/practice/api/UserList";
 import StateEx from "./components/practice/hooks/StateEx";
 import MemoEx from "./components/practice/hooks/MemoEx";
 import EffectEx from "./components/practice/hooks/EffectEx";
 import RefEx from "./components/practice/hooks/RefEx";
 import CallbackEX from "./components/practice/hooks/CallbackEX";
-import Navbar from "./components/parts/Navbar";
-import UserList from "./components/practice/api/UserList";
+import Login from "./pages/Login";
 
+function App (){
 
-class App extends Component {
+  const user = {
+    name:"Mohamed",
+    email:"Mohamed@mail.com"
+  }
+
+  return <>
   
-  state = {
-    showTimer:true
-  };
-
-  render(): ReactNode {
-
-
-    return <>
-
-      <Navbar />
+  <Navbar />
 
     <Routes>
 
 
     <Route index element={<Welcome />} />
+    <Route path="/login" element={<Login />} />
     <Route path="/service" element={<ServiceSection />} />
     <Route path="/courses" element={<CourseList />} />
 
@@ -46,40 +41,8 @@ class App extends Component {
     </Route>
 
     </Routes>
-    
-    
 
-{/* <CallbackEX /> */}
-{/* <MemoEx /> */}
-
-{/* <CreateStudent /> */}
-
-
-{/* <RefEx />
-<GetPosts />
-      <StateEx />
-      <EffectEx /> */}
-
-      {/* <Welcome />
-
-
-      <StudentCard  student={ student1 } />
-      <StudentCard  student={student2} />
-
-      <button onClick={()=>this.setState({showTimer:!this.state.showTimer})}>Toggle Timer</button>
-
-          {this.state.showTimer && <Timer  />}
-
-          <Header />
-
-           */}
-
-
-        </>
-
-    
-  }
-
+  </>
 }
 
 export default App;
